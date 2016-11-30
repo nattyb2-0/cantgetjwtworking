@@ -7,15 +7,47 @@ export default class App extends Component {
     super();
 
     this.state = {
-      something: 'something else'
+      signup: {
+        username: '',
+        password: ''
+      }
     }
+  }
+
+  trackSignup(e) {
+    let inputs = e.target.parentElement.children
+    this.setState({
+      signup: {
+        username: inputs[0].value,
+        password: inputs[1].value
+      }
+    })
+  }
+
+  postSignup(e) {
+    console.log('posting!')
+    fetch('/user/signup/', {
+      headers: {
+        'Content-Type': 'application/JSON'
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        username: this.state.signup.username,
+        password: this.state.signup.password
+      })
+    })
+    .then(() => {
+      console.log('it posted')
+    })
+    .catch(error => console.log(error))
   }
 
   render() {
     return(
       <div>
         <Signup
-
+          trackSignup={this.trackSignup.bind(this)}
+          postSignup={this.postSignup.bind(this)}
         />
         <Login
 
