@@ -17,6 +17,8 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use(expressJWT({secret: 'our secret'}).unless({path: ['/user/login', '/user/signup']}));
 
 const userRouter = require('./routes/user.js')
+const apiRouter = require('./routes/api.js')
 app.use('/user', userRouter);
+app.use('/api', apiRouter);
 
 app.listen(PORT, () => {console.log('Overpriced organic, artisanal, handmade, vegan tacos on port', PORT)});
