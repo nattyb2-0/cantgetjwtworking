@@ -7,7 +7,7 @@ const SALTROUNDS = 10;
 function getPassword(req, res, next) {
   db.one(`SELECT * FROM demousers WHERE demousers.username = $/username/;`, req.body)
     .then((data) => {
-      if (bcrypt.compareSync(req.body.password, data.password) {
+      if (bcrypt.compareSync(req.body.password, data.password)) {
         console.log('match!')
         const myToken = jwt.sign({ username: req.body.username}, 'our secret');
         res.status(200).json(myToken);
