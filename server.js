@@ -7,11 +7,16 @@ const path        = require('path');
 const jwt         = require('jsonwebtoken');
 const expressJWT  = require('express-jwt');
 const app         = express();
+const bcrypt      = require('bcryptjs');
 const PORT        = process.argv[2] || process.env.port || 3000;
 
 app.use(logger('dev'));
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'dist')));
+app.use(expressJWT({secret: 'our secret'}).unless({path: ['/user/login', '/user/signup']}));
 
-app.listen(PORT, () => {console.log('Overpriced organic artisanal tacos on port', PORT)});
+const userRouter = require('./routes/user.js')
+app.use('/user', userRouter);
+
+app.listen(PORT, () => {console.log('Overpriced organic, artisanal, handmade, vegan tacos on port', PORT)});
