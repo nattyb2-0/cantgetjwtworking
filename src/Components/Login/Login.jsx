@@ -4,9 +4,10 @@ export default class Login extends Component {
   render() {
     return(
       <div>
-        <input type="text" placeholder="username"/>
-        <input type="text" placeholder="password"/>
-        <button>Login</button>
+        <input onChange={this.props.trackLoginForm} type="text" placeholder="username"/>
+        <input onChange={this.props.trackLoginForm} type="text" placeholder="password"/>
+        <button onClick={this.props.postLogin}>Login</button>
+        <button onClick={this.props.logout}>Logout</button>
       </div>
     )
   }
