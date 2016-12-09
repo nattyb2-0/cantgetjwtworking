@@ -102,6 +102,7 @@ export default class App extends Component {
         'Authorization': `Bearer ` + this.state.currentToken
       }
     })
+    .then(r => r.json())
     .then((data) => {
       console.log(data)
     })

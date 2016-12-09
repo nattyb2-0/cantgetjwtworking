@@ -27,7 +27,6 @@ function authenticate(req, res, next) {
       } else {
         res.status(500).send('fuck u fite me irl');
       }
-      next();
     })
   .catch(error => console.log(error))
 }
