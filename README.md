@@ -1,9 +1,10 @@
 # jwt-bcrypt-demo
 
 once it's forked/cloned:
-  npm install
-  create db called <your_db_name_here>
-  run
+
+    -npm install
+    create db called <your_db_name_here>
+    run
     psql -d <your_db_name_here> -f ./lib/schema.sql
     psql -d <your_db_name_here> -f ./lib/seeds.sql    
   create a .env that matches the pgConfig object in lib/db.js
@@ -14,5 +15,6 @@ once it's forked/cloned:
       PG_DATABASE=dan
       PG_USER=daniel_pease
       PG_PASSWORD=
+      SECRET=<put your secret here>
 
   get into psql and query the database to make sure everything is k
