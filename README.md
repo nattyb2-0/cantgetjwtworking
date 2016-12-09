@@ -2,11 +2,14 @@
 
 once it's forked/cloned:
 
-    -npm install
-    create db called <your_db_name_here>
-    run
+    npm install
+
+then run
+
+    createdb <your_db_name_here>
     psql -d <your_db_name_here> -f ./lib/schema.sql
     psql -d <your_db_name_here> -f ./lib/seeds.sql    
+
   create a .env that matches the pgConfig object in lib/db.js
     for example, mine looks like this
 
