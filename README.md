@@ -3,6 +3,8 @@
 ####IMPORTANT!
 STORING THE TOKEN IN STATE IS NOT A GREAT IDEA. USE LOCAL STORAGE INSTEAD.
 
+the master branch contains only the skeleton. refer to the branch 'round2' for the solution.
+
 once it's forked/cloned:
 
     npm install

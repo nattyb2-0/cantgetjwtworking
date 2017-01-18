@@ -4,9 +4,9 @@ export default class Signup extends Component {
   render() {
     return(
       <div>
-        <input type="text" placeholder="username"/>
-        <input type="text" placeholder="password"/>
-        <button>Signup</button>
+        <input onChange={this.props.trackSignupForm} type="text" placeholder="username"/>
+        <input onChange={this.props.trackSignupForm} type="text" placeholder="password"/>
+        <button onClick={this.props.postSignup}>Signup</button>
       </div>
     )
   }

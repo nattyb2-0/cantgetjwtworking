@@ -1,11 +1,5 @@
 BEGIN;
 
-INSERT INTO users (user_id, username, password) VALUES
-
-(1, 'irwin', 'irwin'),
-(2, 'trevor', 'trevor'),
-(3, 'matt', 'matt');
-
 INSERT INTO secretStuff (secret_id, mySecret, myOtherSecret) VALUES
 
 (1, 'one time i stole', 'another time i lied'),
