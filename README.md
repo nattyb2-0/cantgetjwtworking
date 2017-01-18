@@ -1,5 +1,8 @@
 # jwt-bcrypt-demo
 
+####IMPORTANT!
+STORING THE TOKEN IN STATE IS NOT A GREAT IDEA. USE LOCAL STORAGE INSTEAD.
+
 once it's forked/cloned:
 
     npm install
