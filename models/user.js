@@ -1,8 +1,19 @@
 const db = require('../lib/db');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-
+var secret = process.env.SECRET;
 const salt = 10;
+const signToken = (user)=>{
+  console.log('yeah')
+  console.log(user.username)
+  return jwt.sign({
+        iss: 'jwt-demo',
+        sub: user.username,
+        iat: new Date().getTime(),
+        exp: new Date().setDate(new Date().getDate()+1)
+        },secret)
+}
+
 
 function createUser(req, res, next) {
   console.log(req.body)
@@ -19,11 +30,13 @@ function authenticate(req, res, next) {
   console.log(req.body.password)
   db.one('SELECT * FROM users WHERE username = $/username/;', req.body)
     .then((data) => {
-      console.log(data.password)
+      console.log(data)
       const match = bcrypt.compareSync(req.body.password, data.password);
       if (match) {
-        const myToken = jwt.sign({ username: req.body.username }, process.env.SECRET);
-        res.status(200).json(myToken);
+        // const myToken = signToken(data);
+
+      const token = jwt.sign({_id: 2}, process.env.SECRET, {expiresIn: '24h'});
+        res.status(200).json(token);
       } else {
         res.status(500).send('fuck u fite me irl');
       }
